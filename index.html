@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Calculadora WhatsApp API · Busset Agency</title>
+  <meta name="theme-color" content="#FFFFFF">
+  <link rel="icon" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-[#F8FAFC] text-ink font-sans antialiased">
+
+  <!-- Barra superior -->
+  <header class="sticky top-0 z-30 bg-white border-b border-slate-200/70">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center gap-3">
+      <img src="assets/logo.png" alt="Busset Agency" class="h-11 w-auto">
+      <div class="min-w-0">
+        <p class="text-[15px] font-bold leading-tight">Calculadora WhatsApp API</p>
+        <p class="text-xs text-slate-500 leading-tight">Costos de Meta para Perú · mensual</p>
+      </div>
+      <span class="ml-auto hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold text-brand bg-brand-soft px-3 py-1.5 rounded-full">
+        <span class="w-1.5 h-1.5 rounded-full bg-brand"></span> En tiempo real
+      </span>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 pt-6 pb-40 lg:pb-12">
+    <section class="mb-6">
+      <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight">¿Cuánto pagarás a Meta este mes?</h1>
+      <p class="mt-2 text-sm sm:text-base text-slate-500 max-w-2xl">Mueve los controles según el volumen de tu negocio. Los leads de anuncios y las primeras 1,000 conversaciones del mes no se cobran.</p>
+    </section>
+
+    <div class="grid lg:grid-cols-[minmax(0,1fr)_380px] gap-6 items-start">
+
+      <!-- Controles -->
+      <div class="flex flex-col gap-4 min-w-0">
+
+        <!-- a) Leads de anuncios -->
+        <article class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-5">
+          <div class="flex items-start gap-3">
+            <div class="w-11 h-11 shrink-0 rounded-xl bg-brand-soft text-xl flex items-center justify-center">📣</div>
+            <div class="min-w-0 flex-1">
+              <div class="flex items-center gap-2 flex-wrap">
+                <h2 class="font-bold text-[15px]">Leads de anuncios</h2>
+                <span class="text-[11px] font-bold uppercase tracking-wide text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">Gratis</span>
+              </div>
+              <p class="text-[13px] text-slate-500 mt-0.5">Llegan desde anuncios Click-to-WhatsApp. Ventana gratuita de 72 horas.</p>
+            </div>
+          </div>
+          <div class="mt-5 flex items-center gap-4">
+            <input type="range" class="slider" id="r-leads" min="0" max="2000" step="10" aria-label="Leads de anuncios al mes">
+            <input type="number" id="n-leads" min="0" inputmode="numeric" aria-label="Leads de anuncios al mes" class="w-24 shrink-0 text-right font-bold text-base tabular bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-4 focus:ring-brand/20 focus:border-brand">
+          </div>
+          <div class="mt-3 flex items-center justify-between gap-3">
+            <label for="n-leadsmsg" class="text-[13px] text-slate-500">Mensajes enviados por lead</label>
+            <input type="number" id="n-leadsmsg" min="0" inputmode="numeric" class="w-24 text-right font-semibold text-sm tabular bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 focus:outline-none focus:ring-4 focus:ring-brand/20 focus:border-brand">
+          </div>
+          <p id="m-leads" class="mt-3 text-[13px] text-slate-600 bg-slate-50 rounded-xl px-3 py-2 tabular"></p>
+        </article>
+
+        <!-- b) Clientes recurrentes -->
+        <article class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-5">
+          <div class="flex items-start gap-3">
+            <div class="w-11 h-11 shrink-0 rounded-xl bg-brand-soft text-xl flex items-center justify-center">💬</div>
+            <div class="min-w-0 flex-1">
+              <div class="flex items-center gap-2 flex-wrap">
+                <h2 class="font-bold text-[15px]">Clientes recurrentes</h2>
+                <span class="text-[11px] font-bold uppercase tracking-wide text-brand bg-brand-soft px-2 py-0.5 rounded-full">1,000 gratis</span>
+              </div>
+              <p class="text-[13px] text-slate-500 mt-0.5">Clientes que te escriben sin anuncio. Las primeras 1,000 del mes son gratis; el resto se cobra.</p>
+            </div>
+          </div>
+          <div class="mt-5 flex items-center gap-4">
+            <input type="range" class="slider" id="r-rec" min="0" max="3000" step="10" aria-label="Clientes recurrentes al mes">
+            <input type="number" id="n-rec" min="0" inputmode="numeric" aria-label="Clientes recurrentes al mes" class="w-24 shrink-0 text-right font-bold text-base tabular bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-4 focus:ring-brand/20 focus:border-brand">
+          </div>
+          <div class="mt-3 flex items-center justify-between gap-3">
+            <label for="n-recmsg" class="text-[13px] text-slate-500">Mensajes enviados por cliente</label>
+            <input type="number" id="n-recmsg" min="0" inputmode="numeric" class="w-24 text-right font-semibold text-sm tabular bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 focus:outline-none focus:ring-4 focus:ring-brand/20 focus:border-brand">
+          </div>
+          <div class="mt-3">
+            <div class="flex justify-between text-[12px] text-slate-500 mb-1.5"><span>Uso del cupo gratuito</span><span id="free-pct" class="font-semibold tabular"></span></div>
+            <div class="h-2 bg-slate-100 rounded-full overflow-hidden"><div id="free-bar" class="bar h-full rounded-full" style="width:0"></div></div>
+          </div>
+          <p id="m-rec" class="mt-3 text-[13px] text-slate-600 bg-slate-50 rounded-xl px-3 py-2 tabular"></p>
+        </article>
+
+        <!-- c) Recordatorios -->
+        <article class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-5">
+          <div class="flex items-start gap-3">
+            <div class="w-11 h-11 shrink-0 rounded-xl bg-brand-soft text-xl flex items-center justify-center">⏰</div>
+            <div class="min-w-0 flex-1">
+              <div class="flex items-center gap-2 flex-wrap">
+                <h2 class="font-bold text-[15px]">Recordatorios y confirmaciones</h2>
+                <span class="text-[11px] font-bold uppercase tracking-wide text-slate-700 bg-slate-100 px-2 py-0.5 rounded-full">Utilidad</span>
+              </div>
+              <p class="text-[13px] text-slate-500 mt-0.5">Recordatorios de cita, avisos de pago o de pedido. Siempre se cobran.</p>
+            </div>
+          </div>
+          <div class="mt-5 flex items-center gap-4">
+            <input type="range" class="slider" id="r-rem" min="0" max="5000" step="10" aria-label="Recordatorios al mes">
+            <input type="number" id="n-rem" min="0" inputmode="numeric" aria-label="Recordatorios al mes" class="w-24 shrink-0 text-right font-bold text-base tabular bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-4 focus:ring-brand/20 focus:border-brand">
+          </div>
+          <p id="m-rem" class="mt-3 text-[13px] text-slate-600 bg-slate-50 rounded-xl px-3 py-2 tabular"></p>
+        </article>
+
+        <!-- d) Campañas -->
+        <article class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-5">
+          <div class="flex items-start gap-3">
+            <div class="w-11 h-11 shrink-0 rounded-xl bg-brand-soft text-xl flex items-center justify-center">🚀</div>
+            <div class="min-w-0 flex-1">
+              <div class="flex items-center gap-2 flex-wrap">
+                <h2 class="font-bold text-[15px]">Campañas de marketing</h2>
+                <span class="text-[11px] font-bold uppercase tracking-wide text-white bg-ink px-2 py-0.5 rounded-full">Marketing</span>
+              </div>
+              <p class="text-[13px] text-slate-500 mt-0.5">Promociones y novedades enviadas a tu base de contactos.</p>
+            </div>
+          </div>
+          <div class="mt-5 flex items-center gap-4">
+            <input type="range" class="slider" id="r-mkt" min="0" max="10000" step="50" aria-label="Mensajes de campaña al mes">
+            <input type="number" id="n-mkt" min="0" inputmode="numeric" aria-label="Mensajes de campaña al mes" class="w-24 shrink-0 text-right font-bold text-base tabular bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-4 focus:ring-brand/20 focus:border-brand">
+          </div>
+          <p id="m-mkt" class="mt-3 text-[13px] text-slate-600 bg-slate-50 rounded-xl px-3 py-2 tabular"></p>
+        </article>
+
+        <!-- e) Tipo de cambio y tarifas -->
+        <article class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-5">
+          <div class="flex items-start gap-3">
+            <div class="w-11 h-11 shrink-0 rounded-xl bg-slate-100 text-xl flex items-center justify-center">⚙️</div>
+            <div class="min-w-0 flex-1">
+              <h2 class="font-bold text-[15px]">Tipo de cambio y tarifas</h2>
+              <p class="text-[13px] text-slate-500 mt-0.5">Ajusta según el tipo de cambio del día y las tarifas vigentes de Meta.</p>
+            </div>
+          </div>
+          <div class="mt-4 grid grid-cols-2 gap-3">
+            <label class="col-span-2 flex items-center justify-between gap-3 bg-brand-soft border border-brand/15 rounded-xl px-4 py-3">
+              <span class="text-sm font-semibold">Tipo de cambio <span class="font-normal text-slate-500">(S/ por US$)</span></span>
+              <input type="number" id="n-fx" min="0" step="0.01" inputmode="decimal" class="w-24 text-right font-bold text-base tabular bg-white border border-slate-200 rounded-xl px-3 py-1.5 focus:outline-none focus:ring-4 focus:ring-brand/20 focus:border-brand">
+            </label>
+            <label class="flex flex-col gap-1 bg-slate-50 rounded-xl px-3 py-2.5">
+              <span class="text-[12px] text-slate-500">Servicio (US$)</span>
+              <input type="number" id="p-svc" min="0" step="0.001" inputmode="decimal" class="w-full font-semibold text-sm tabular bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 focus:outline-none focus:ring-4 focus:ring-brand/20 focus:border-brand">
+            </label>
+            <label class="flex flex-col gap-1 bg-slate-50 rounded-xl px-3 py-2.5">
+              <span class="text-[12px] text-slate-500">Utilidad (US$)</span>
+              <input type="number" id="p-util" min="0" step="0.001" inputmode="decimal" class="w-full font-semibold text-sm tabular bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 focus:outline-none focus:ring-4 focus:ring-brand/20 focus:border-brand">
+            </label>
+            <label class="flex flex-col gap-1 bg-slate-50 rounded-xl px-3 py-2.5">
+              <span class="text-[12px] text-slate-500">Marketing (US$)</span>
+              <input type="number" id="p-mkt" min="0" step="0.001" inputmode="decimal" class="w-full font-semibold text-sm tabular bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 focus:outline-none focus:ring-4 focus:ring-brand/20 focus:border-brand">
+            </label>
+            <label class="flex flex-col gap-1 bg-slate-50 rounded-xl px-3 py-2.5">
+              <span class="text-[12px] text-slate-500">Cupo gratuito / mes</span>
+              <input type="number" id="p-free" min="0" step="1" inputmode="numeric" class="w-full font-semibold text-sm tabular bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 focus:outline-none focus:ring-4 focus:ring-brand/20 focus:border-brand">
+            </label>
+          </div>
+          <button type="button" id="btn-reset" class="mt-3 text-[13px] font-semibold text-slate-500 hover:text-ink">↺ Restablecer valores</button>
+        </article>
+
+        <p class="text-[12px] text-slate-400 px-1">Tarifas referenciales en dólares por mensaje. Confírmalas en la página oficial de precios de WhatsApp Business de Meta. Se asume que los leads de anuncios se atienden dentro de la ventana gratuita de 72 horas.</p>
+      </div>
+
+      <!-- Resumen -->
+      <aside id="resumen" class="lg:sticky lg:top-24 min-w-0" aria-live="polite">
+        <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+          <div class="p-5 bg-ink text-white">
+            <p class="text-[12px] font-semibold uppercase tracking-wider text-brand-rose">Total mensual a Meta</p>
+            <p class="mt-1 text-4xl font-extrabold tracking-tight tabular" id="t-pen">S/ 0.00</p>
+            <p class="mt-1 text-sm text-slate-300 tabular" id="t-usd">US$ 0.00</p>
+          </div>
+
+          <div class="p-5 flex flex-col gap-4">
+            <div class="flex flex-col gap-3" id="lines"></div>
+
+            <div class="rounded-xl bg-brand-soft px-4 py-3">
+              <p class="text-[13px] text-brand font-semibold">✨ Ahorro por mensajes gratuitos</p>
+              <p class="text-[13px] text-slate-600 mt-0.5 tabular" id="t-save"></p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3 text-center">
+              <div class="rounded-xl bg-slate-50 py-3">
+                <p class="text-[11px] uppercase tracking-wide text-slate-500 font-semibold">Mensajes totales</p>
+                <p class="text-lg font-bold tabular" id="t-msgs">0</p>
+              </div>
+              <div class="rounded-xl bg-slate-50 py-3">
+                <p class="text-[11px] uppercase tracking-wide text-slate-500 font-semibold">Mensajes cobrados</p>
+                <p class="text-lg font-bold tabular" id="t-paid">0</p>
+              </div>
+            </div>
+
+            <label class="flex flex-col gap-1.5">
+              <span class="text-[13px] font-semibold">Cliente <span class="font-normal text-slate-400">(opcional, sale en la imagen)</span></span>
+              <input type="text" id="n-cliente" maxlength="60" placeholder="Ej.: Clínica Sonrisas" class="w-full text-sm bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 focus:outline-none focus:ring-4 focus:ring-brand/20 focus:border-brand">
+            </label>
+
+            <div class="flex flex-col gap-2">
+              <button type="button" data-capture class="w-full flex items-center justify-center gap-2 bg-brand hover:bg-brand-dark active:scale-[.98] transition text-white font-bold rounded-xl py-3.5 shadow-sm">
+                🖼️ Generar imagen para compartir
+              </button>
+              <button type="button" data-copy class="w-full flex items-center justify-center gap-2 bg-white border border-slate-200 hover:border-ink active:scale-[.98] transition text-ink font-semibold rounded-xl py-3">
+                📋 Copiar texto para WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Panel inferior fijo (móvil) -->
+  <div class="lg:hidden fixed inset-x-0 bottom-0 z-40 bg-white/95 backdrop-blur border-t border-slate-200 shadow-[0_-8px_24px_rgba(0,0,0,.08)] rounded-t-2xl">
+    <div class="max-w-6xl mx-auto px-4 pt-3 pb-[max(12px,env(safe-area-inset-bottom))]">
+      <div class="w-10 h-1 bg-slate-200 rounded-full mx-auto mb-3"></div>
+      <div class="flex items-center gap-2">
+        <a href="#resumen" class="min-w-0 flex-1">
+          <p class="text-[11px] uppercase tracking-wider text-slate-500 font-semibold">Total mensual</p>
+          <p class="text-2xl font-extrabold tracking-tight tabular leading-tight text-brand" id="b-pen">S/ 0.00</p>
+          <p class="text-[12px] text-slate-500 tabular truncate" id="b-usd">US$ 0.00 · ver detalle</p>
+        </a>
+        <button type="button" data-copy aria-label="Copiar texto para WhatsApp" class="shrink-0 w-12 h-12 flex items-center justify-center bg-white border border-slate-200 active:scale-[.97] transition rounded-xl text-lg">📋</button>
+        <button type="button" data-capture class="shrink-0 flex items-center gap-1.5 bg-brand active:scale-[.97] transition text-white font-bold rounded-xl px-4 h-12 shadow-sm text-sm">🖼️ Imagen</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vista previa de la imagen -->
+  <div id="modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 p-4" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="bg-white rounded-2xl w-full max-w-sm max-h-[92vh] flex flex-col overflow-hidden shadow-xl">
+      <div class="flex items-center justify-between px-5 py-4 border-b border-slate-100">
+        <h3 id="modal-title" class="font-bold">Imagen lista para compartir</h3>
+        <button type="button" id="modal-close" aria-label="Cerrar" class="w-9 h-9 rounded-full hover:bg-slate-100 text-xl leading-none">×</button>
+      </div>
+      <div class="overflow-auto p-4 bg-slate-50">
+        <img id="preview" alt="Vista previa del presupuesto" class="w-full rounded-xl border border-slate-200 shadow-sm">
+      </div>
+      <div class="p-4 grid grid-cols-2 gap-2">
+        <button type="button" id="btn-share" class="flex items-center justify-center gap-2 bg-brand hover:bg-brand-dark text-white font-bold rounded-xl py-3">📤 Compartir</button>
+        <button type="button" id="btn-download" class="flex items-center justify-center gap-2 bg-ink text-white font-bold rounded-xl py-3">⬇️ Descargar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Aquí se arma la tarjeta que se convierte en imagen -->
+  <div id="captura-host" aria-hidden="true"></div>
+
+  <!-- Aviso -->
+  <div id="toast" role="status" class="fixed left-1/2 -translate-x-1/2 bottom-32 lg:bottom-8 z-[60] bg-ink text-white text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg opacity-0 pointer-events-none transition-opacity duration-200"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="assets/logo-data.js"></script>
+  <script src="js/calculadora.js"></script>
+  <script src="js/captura.js"></script>
+</body>
+</html>
